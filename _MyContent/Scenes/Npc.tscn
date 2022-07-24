@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://_MyContent/Images/Bitter-VariableFont_wght.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://_MyContent/Images/TextBubble.png" type="Texture" id=2]
+[ext_resource path="res://_MyContent/Scripts/Talking_Npc.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleMesh" id=1]
+
+[sub_resource type="CylinderShape" id=4]
+radius = 20.9449
+height = 14.9561
+
+[sub_resource type="DynamicFont" id=3]
+size = 26
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="ViewportTexture" id=5]
+viewport_path = NodePath("Text Bubble/Viewport")
+
+[node name="Npc" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 4.06643, 0, 0, 0, -2.11512e-07, 4.83884, 0, -4.06643, -1.77749e-07, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 4 )
+
+[node name="Text Bubble" type="Spatial" parent="."]
+transform = Transform( 4.12478, 0, 0, 0, 4.12478, 0, 0, 0, 4.12478, 0, 7.74, 0 )
+visible = false
+
+[node name="Viewport" type="Viewport" parent="Text Bubble"]
+size = Vector2( 275, 190 )
+transparent_bg = true
+
+[node name="TextureRect" type="TextureRect" parent="Text Bubble/Viewport"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 944.0
+margin_bottom = 696.0
+rect_scale = Vector2( 0.29083, 0.29083 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Text Bubble/Viewport"]
+margin_left = 19.0
+margin_top = 9.0
+margin_right = 262.0
+margin_bottom = 143.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Testing Testing Testing Testing Testing Testing 
+"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="Sprite3D" type="Sprite3D" parent="Text Bubble"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.826118, 0.990016 )
+flip_v = true
+billboard = 1
+texture = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

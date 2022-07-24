@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/RPS_Button_Holder.obj-caa1bb415bc9d0ea30c8736c278a2127.mesh"
+
+[deps]
+
+files=[ "res://.import/RPS_Button_Holder.obj-caa1bb415bc9d0ea30c8736c278a2127.mesh" ]
+
+source_file="res://_MyContent/Models/RPS_Button_Holder.obj"
+dest_files=[ "res://.import/RPS_Button_Holder.obj-caa1bb415bc9d0ea30c8736c278a2127.mesh", "res://.import/RPS_Button_Holder.obj-caa1bb415bc9d0ea30c8736c278a2127.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
