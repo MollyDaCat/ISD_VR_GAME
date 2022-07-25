@@ -5,24 +5,27 @@ extends Spatial
 
 var stage = 1
 
+var ball
 
 func _ready():
 	pass
 
 func Score(body):
-	if body.name == "Ball":
+	if ball and body == ball:
 		stage += 1
 		print (stage)
 		if stage == 2:
 			$AnimationPlayer.play("Raise Hoop")
-		elif stage == 3 or stage == 5:
-			$AnimationPlayer.play("Hoop Float")
+		elif stage == 3:
+			$AnimationPlayer.play("Hoop Float",1)
 			$Hoop/Pole.hide()
 		elif stage ==4:
 			$AnimationPlayer.stop()
 			$Cannons.show()
 			$Timer.start()
 			#fire_snake()
+		elif stage == 5:
+			$Timer.wait_time = 2.25
 		elif stage == 6:
 			$AnimationPlayer.stop()
 			$Timer.stop()
@@ -93,9 +96,16 @@ func _on_Snake_body_entered(body): #Knockback The ball when colliding with the s
 	if body.name == "Ball":
 		body.bullet_hit(30, $Cannons/Path/PathFollow.global_transform)
 
-func respawn_ball(): #Replace With system to spawn in new ball
-	$Ball.translation = Vector3(0,0,30)
 
+
+var ball_path = preload("res://_MyContent/Scenes/Ball.tscn")
+func respawn_ball(): #Replace With system to spawn in new ball
+	if ball:
+		ball.queue_free()
+	var ball_spawn = ball_path.instance()
+	ball_spawn.translation = Vector3(0,0,25)
+	add_child(ball_spawn)
+	ball = ball_spawn
 
 func _on_Respawn_body_entered(body):
 	if body.name == "Player":
