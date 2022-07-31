@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_MyContent/Scenes/Target Group.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_MyContent/Scenes/Scar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_MyContent/Scenes/Mini_Boss.gd" type="Script" id=6]
+
+[sub_resource type="Environment" id=16]
+
+[sub_resource type="CylinderMesh" id=13]
+top_radius = 0.2
+bottom_radius = 0.5
+height = 0.2
+
+[sub_resource type="SpatialMaterial" id=14]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 0.460938, 0.633606, 1, 0.431373 )
+
+[sub_resource type="CylinderMesh" id=15]
+top_radius = 0.01
+bottom_radius = 0.1
+height = 0.8
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0.871826, 0.707031, 1 )
+metallic = 0.5
+roughness = 0.53
+
+[sub_resource type="BoxShape" id=3]
+
+[node name="Game" type="Spatial"]
+script = ExtResource( 6 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 16 )
+
+[node name="FPController" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37601, 0 )
+
+[node name="Teleport_Mesh" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 13 )
+material/0 = SubResource( 14 )
+
+[node name="Teleport_Pointy" type="MeshInstance" parent="Teleport_Mesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679908, 0 )
+mesh = SubResource( 15 )
+material/0 = SubResource( 14 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 6.19994, 0, 0, 0, 0.40155, 0, 0, 0, 6.19994, 0, 0.51467, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1.31314, 0, 0, 0, 1, 0, 0, 0, 1.31314, 0, 0, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Target_Group" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.400869, 0, 0, 0, 0.400869, 0, 0, 0, 0.400869, 0, 5.35462, -8.27675 )
+
+[node name="Scar" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.531413, 1.85997, -0.179556 )
+
+[node name="Scar2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.606087, 1.85997, -0.179556 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 8.36758, 0 )
+omni_range = 12.803
+omni_attenuation = 0.999999
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 7.15842, 0 )
+visible = false
