@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://_MyContent/Images/Arcade Floor Galaxy.jpg" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://_MyContent/LEGO NINJAGO _ The Fold _ The Weekend Whip - The Ghost Whip (Instrumental).wav" type="AudioStream" id=16]
 [ext_resource path="res://_MyContent/Meshes/JukeBox.obj" type="ArrayMesh" id=17]
 [ext_resource path="res://_MyContent/Scenes/Duck_Shooting.tscn" type="PackedScene" id=18]
+[ext_resource path="res://_MyContent/Scenes/Flappy_Fern_Machine.tscn" type="PackedScene" id=19]
 
 [sub_resource type="SpatialMaterial" id=47]
 albedo_color = Color( 0.168627, 0.168627, 0.168627, 1 )
@@ -388,20 +389,6 @@ material/2 = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.495253 )
 shape = SubResource( 48 )
 
-[node name="Arcade_Machine5" type="StaticBody" parent="World"]
-transform = Transform( 0.738868, 0, -0.426585, 0, 0.853171, 0, 0.426585, 0, 0.738868, 0.5061, 1.03514, -4.59168 )
-
-[node name="Arcade_Machine" type="MeshInstance" parent="World/Arcade_Machine5"]
-mesh = ExtResource( 12 )
-skeleton = NodePath("../..")
-material/0 = SubResource( 46 )
-material/1 = SubResource( 47 )
-material/2 = ExtResource( 5 )
-
-[node name="CollisionShape" type="CollisionShape" parent="World/Arcade_Machine5"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.495253 )
-shape = SubResource( 48 )
-
 [node name="Arcade_Machine6" type="StaticBody" parent="World"]
 transform = Transform( 0.806625, -0.268416, 0.0721737, -0.0323824, -0.310781, -0.793893, 0.276057, 0.747842, -0.304014, -5.81956, 3.10087, -5.17286 )
 
@@ -516,4 +503,7 @@ autoplay = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.26183, -0.242366, 1.10417 )
 
 [node name="Duck Shooting" parent="." instance=ExtResource( 18 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.00313, 2.1463, 5.62676 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.00313, 1.10959, 5.62676 )
+
+[node name="Flappy Fern" parent="." instance=ExtResource( 19 )]
+transform = Transform( 0.873526, 0, -0.486778, 0, 1, 0, 0.486778, 0, 0.873526, 0.421632, 0.984978, -4.71769 )
