@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://_MyContent/Images/Arcade Floor Galaxy.jpg" type="Texture" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://_MyContent/Meshes/JukeBox.obj" type="ArrayMesh" id=17]
 [ext_resource path="res://_MyContent/Scenes/Duck_Shooting.tscn" type="PackedScene" id=18]
 [ext_resource path="res://_MyContent/Scenes/Flappy_Fern_Machine.tscn" type="PackedScene" id=19]
+[ext_resource path="res://_MyContent/Materials/Eye.material" type="Material" id=20]
+[ext_resource path="res://_MyContent/Meshes/Char/Jones_Zombie.obj" type="ArrayMesh" id=21]
 
 [sub_resource type="SpatialMaterial" id=47]
 albedo_color = Color( 0.168627, 0.168627, 0.168627, 1 )
@@ -117,6 +119,8 @@ albedo_color = Color( 0.460938, 0.633606, 1, 0.431373 )
 top_radius = 0.01
 bottom_radius = 0.1
 height = 0.8
+
+[sub_resource type="SphereMesh" id=52]
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 1 )
@@ -507,3 +511,17 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.00313
 
 [node name="Flappy Fern" parent="." instance=ExtResource( 19 )]
 transform = Transform( 0.873526, 0, -0.486778, 0, 1, 0, 0.486778, 0, 0.873526, 0.421632, 0.984978, -4.71769 )
+
+[node name="Jones_Zombie" type="MeshInstance" parent="."]
+transform = Transform( 0.51201, 0, 0, 0, 0.51201, 0, 0, 0, 0.51201, 5.70838, 0.0638474, -2.35047 )
+mesh = ExtResource( 21 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="Jones_Zombie"]
+transform = Transform( -0.0279803, -0.184123, -0.0228097, -0.04123, -0.01632, 0.182314, -0.180891, 0.0322, -0.038026, -0.529158, 2.09242, -0.42989 )
+mesh = SubResource( 52 )
+material/0 = ExtResource( 20 )

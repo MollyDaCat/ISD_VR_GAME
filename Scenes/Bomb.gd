@@ -5,7 +5,7 @@ var bomb_mesh
 
 # A constant for how long the fuse needs to burn before the bomb explodes and
 # a timer variable to track how long the fuse has been burning
-const FUSE_TIME = 4
+const FUSE_TIME = 6
 var fuse_timer = 0
 
 # The explosion area, how much damage the explosion does,

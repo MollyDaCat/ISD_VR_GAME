@@ -61,7 +61,8 @@ func _ready():
 	grab_area = get_node("Area")
 	grab_raycast = get_node("GrabCast")
 	grab_pos_node = get_node("Grab_Pos")
-	grab_mode = "AREA"
+	#grab_mode = "AREA"
+	grab_mode = "RAYCAST"
 	
 	# Connect the sleep area signals (to make it where RigidBodies cannot sleep when close to
 	# the player)
