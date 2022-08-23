@@ -16,3 +16,10 @@ func _process(delta):
 func reset_wall():
 	position.x = 1950
 	position.y = rand_range(100,770)
+
+
+func _on_Point_Area_body_entered(body):
+	if body.name == "Player":
+		print("Point")
+		body.points += 1
+		body.change_points()

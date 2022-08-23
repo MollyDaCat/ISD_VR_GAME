@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://_MyContent/Images/Arcade Floor Galaxy.jpg" type="Texture" id=2]
@@ -12,15 +12,13 @@
 [ext_resource path="res://_MyContent/Images/Tiles_Normal.jpg" type="Texture" id=10]
 [ext_resource path="res://_MyContent/Scenes/Light.tscn" type="PackedScene" id=11]
 [ext_resource path="res://_MyContent/Meshes/Arcade_Machine.obj" type="ArrayMesh" id=12]
-[ext_resource path="res://_MyContent/Images/Gore_Normal.jpg" type="Texture" id=13]
+[ext_resource path="res://_MyContent/Materials/White.tres" type="Material" id=13]
 [ext_resource path="res://_MyContent/Scenes/Button.gd" type="Script" id=14]
 [ext_resource path="res://_MyContent/Scenes/JukeBox.gd" type="Script" id=15]
 [ext_resource path="res://_MyContent/LEGO NINJAGO _ The Fold _ The Weekend Whip - The Ghost Whip (Instrumental).wav" type="AudioStream" id=16]
 [ext_resource path="res://_MyContent/Meshes/JukeBox.obj" type="ArrayMesh" id=17]
 [ext_resource path="res://_MyContent/Scenes/Duck_Shooting.tscn" type="PackedScene" id=18]
 [ext_resource path="res://_MyContent/Scenes/Flappy_Fern_Machine.tscn" type="PackedScene" id=19]
-[ext_resource path="res://_MyContent/Materials/Eye.material" type="Material" id=20]
-[ext_resource path="res://_MyContent/Meshes/Char/Jones_Zombie.obj" type="ArrayMesh" id=21]
 
 [sub_resource type="SpatialMaterial" id=47]
 albedo_color = Color( 0.168627, 0.168627, 0.168627, 1 )
@@ -32,21 +30,6 @@ size = Vector3( 2.347, 7.448, 1.252 )
 
 [sub_resource type="BoxShape" id=50]
 extents = Vector3( 0.236523, 0.218588, 0.30654 )
-
-[sub_resource type="SpatialMaterial" id=46]
-albedo_color = Color( 1, 0, 0, 1 )
-metallic = 1.0
-metallic_specular = 1.0
-
-[sub_resource type="SpatialMaterial" id=49]
-albedo_texture = ExtResource( 2 )
-normal_enabled = true
-normal_scale = 1.0
-normal_texture = ExtResource( 13 )
-uv1_scale = Vector3( 12, 6, 6 )
-
-[sub_resource type="BoxShape" id=48]
-extents = Vector3( 0.59647, 1.2051, 0.76689 )
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -101,6 +84,14 @@ normal_scale = 16.0
 normal_texture = ExtResource( 6 )
 uv1_scale = Vector3( 30.104, 8.378, 1 )
 
+[sub_resource type="SpatialMaterial" id=46]
+albedo_color = Color( 1, 0, 0, 1 )
+metallic = 1.0
+metallic_specular = 1.0
+
+[sub_resource type="BoxShape" id=48]
+extents = Vector3( 0.59647, 1.2051, 0.76689 )
+
 [sub_resource type="Environment" id=39]
 background_mode = 2
 background_energy = 0.0
@@ -120,7 +111,8 @@ top_radius = 0.01
 bottom_radius = 0.1
 height = 0.8
 
-[sub_resource type="SphereMesh" id=52]
+[sub_resource type="ViewportTexture" id=52]
+viewport_path = NodePath("MiniGames/Video Machine/Viewport")
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 1 )
@@ -155,20 +147,6 @@ transform = Transform( 0.957632, 0, -0.287996, 0, 1, 0, 0.287996, 0, 0.957632, 6
 stream = ExtResource( 16 )
 unit_db = -36.815
 unit_size = 77.9
-
-[node name="Video Machine" type="StaticBody" parent="."]
-transform = Transform( 0.866025, -4.37114e-08, 0.5, 3.82137e-15, -1, -8.74228e-08, 0.5, 7.57103e-08, -0.866025, -5.29973, 4.80492, 4.51058 )
-
-[node name="Arcade_Machine" type="MeshInstance" parent="Video Machine"]
-mesh = ExtResource( 12 )
-skeleton = NodePath("../../World")
-material/0 = SubResource( 46 )
-material/1 = SubResource( 47 )
-material/2 = SubResource( 49 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Video Machine"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.495253 )
-shape = SubResource( 48 )
 
 [node name="World" type="Spatial" parent="."]
 
@@ -503,25 +481,41 @@ material/0 = SubResource( 22 )
 volume_db = -10.0
 autoplay = true
 
-[node name="Bowling" parent="." instance=ExtResource( 4 )]
+[node name="MiniGames" type="Spatial" parent="."]
+
+[node name="Bowling" parent="MiniGames" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.26183, -0.242366, 1.10417 )
 
-[node name="Duck Shooting" parent="." instance=ExtResource( 18 )]
+[node name="Duck Shooting" parent="MiniGames" instance=ExtResource( 18 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.00313, 1.10959, 5.62676 )
 
-[node name="Flappy Fern" parent="." instance=ExtResource( 19 )]
-transform = Transform( 0.873526, 0, -0.486778, 0, 1, 0, 0.486778, 0, 0.873526, 0.421632, 0.984978, -4.71769 )
+[node name="Flappy Fern" parent="MiniGames" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.443517, 1.0922, -4.87509 )
 
-[node name="Jones_Zombie" type="MeshInstance" parent="."]
-transform = Transform( 0.51201, 0, 0, 0, 0.51201, 0, 0, 0, 0.51201, 5.70838, 0.0638474, -2.35047 )
-mesh = ExtResource( 21 )
-material/0 = null
-material/1 = null
-material/2 = null
-material/3 = null
-material/4 = null
+[node name="Video Machine" type="StaticBody" parent="MiniGames"]
+transform = Transform( 0.866025, -4.37114e-08, 0.5, 3.82137e-15, -1, -8.74228e-08, 0.5, 7.57103e-08, -0.866025, -5.29973, 4.80492, 4.51058 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Jones_Zombie"]
-transform = Transform( -0.0279803, -0.184123, -0.0228097, -0.04123, -0.01632, 0.182314, -0.180891, 0.0322, -0.038026, -0.529158, 2.09242, -0.42989 )
-mesh = SubResource( 52 )
-material/0 = ExtResource( 20 )
+[node name="Arcade_Machine" type="MeshInstance" parent="MiniGames/Video Machine"]
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../../World")
+material/0 = SubResource( 46 )
+material/1 = ExtResource( 5 )
+material/2 = ExtResource( 13 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MiniGames/Video Machine"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.495253 )
+shape = SubResource( 48 )
+
+[node name="Viewport" type="Viewport" parent="MiniGames/Video Machine"]
+size = Vector2( 50, 50 )
+
+[node name="Label" type="Label" parent="MiniGames/Video Machine/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "AAAAAAAAAAAAAAAAAAA
+"
+
+[node name="Sprite3D" type="Sprite3D" parent="MiniGames/Video Machine"]
+transform = Transform( 1.53448, 1.42109e-14, 5.96046e-08, 1.3145e-13, 1.15173, -3.34608e-08, -5.96046e-08, -3.34607e-08, 1.53448, 0.129022, 0.354349, -0.149226 )
+opacity = 0.27
+texture = SubResource( 52 )

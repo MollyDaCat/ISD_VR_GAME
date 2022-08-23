@@ -8,6 +8,7 @@ const GRAVITY = 10 * 5
 
 var motion = Vector2()
 
+var points = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,6 +35,14 @@ func _on_Area2D_body_entered(body):
 		reset()
 
 func reset():
-# Move Walls
+# Reset Walls
 	get_parent().get_child(2).position.x = 1979 
 	get_parent().get_child(3).position.x = 3319
+
+	points = 0
+	change_points()
+
+func change_points():
+	get_parent().get_child(1).text = str(points)
+	if points == 3:
+		get_parent().get_parent().get_parent().finish()
