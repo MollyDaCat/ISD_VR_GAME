@@ -490,7 +490,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.26183, -0.242366, 1.10417 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.00313, 1.10959, 5.62676 )
 
 [node name="Flappy Fern" parent="MiniGames" instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.443517, 1.0922, -4.87509 )
 
 [node name="Video Machine" type="StaticBody" parent="MiniGames"]
 transform = Transform( 0.866025, -4.37114e-08, 0.5, 3.82137e-15, -1, -8.74228e-08, 0.5, 7.57103e-08, -0.866025, -5.29973, 4.80492, 4.51058 )

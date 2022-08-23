@@ -7,4 +7,6 @@ func Press():
 func finish():
 	$AnimationPlayer.play("Finish")
 	$Viewport.queue_free()
-	get_parent().add_tickets(10)
+	if Global.tickets[2] == 0:
+		get_parent().add_tickets(10)
+		Global.tickets[2] = 1

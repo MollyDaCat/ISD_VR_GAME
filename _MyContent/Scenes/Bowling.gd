@@ -9,11 +9,15 @@ var pins_down = 0
 var total_points = 0
 var balls_thrown = 0
 
+var challenge1 = 20
+var challenge2 = 40
+var challenge3 = 60
+var challenge4 = 80
 
 func _ready():
 	pass
 
-
+ ##################################### RUBEN IF YOU READ THIS COULD YOU EXTEND THE BASE MODEL SO WE CAN DISPLAY 5 MORE PLAYERS
 func _on_Pin_Respawn_Delay_timeout():
 	reset_pins()
 
@@ -22,6 +26,26 @@ func reset_pins():
 	balls_thrown = 0
 	for x in $Pins.get_children():
 		x.sleeping = true
+	if total_points >= 100:
+		Global.tickets[1] = 1 #So the player can't farm points
+		if Global.tickets[1] == 0:
+			get_parent().add_tickets(10)
+	if total_points >= challenge1: #Mass of the ball 
+		pass
+	else:
+		pass
+	if total_points >= challenge2: #Sloped playing field
+		pass
+	else:
+		pass
+	if total_points >= challenge3: # Pins move? or Guard Rails
+		pass
+	else:
+		pass
+	if total_points >= challenge4: #Heavier Pin (Hard to go down on a non - direct hit
+		pass
+	else:
+		pass
 
 
 func count_pins():
@@ -38,6 +62,7 @@ func count_pins():
 	print(pins_down)
 	if current_round > 9:
 		current_round = 0
+		squares.get_children().getchildren(0,1,2).text = "-"
 	var current_square = squares[current_round]
 	var a = current_square.get_children()
 
