@@ -36,8 +36,9 @@ func _on_Area2D_body_entered(body):
 
 func reset():
 # Reset Walls
-	get_parent().get_child(2).position.x = 1979 
-	get_parent().get_child(3).position.x = 3319
+	print("Reset")
+	get_parent().get_child(3).position.x = 1979 
+	get_parent().get_child(4).position.x = 3319
 
 	points = 0
 	change_points()

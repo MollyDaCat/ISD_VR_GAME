@@ -48,7 +48,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0.443517, -0.25, 0, 0.25, 0, 1.76461, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0.183558, -0.25, 0, 0.25, 0, 1.10468, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 3 )
 }
 tracks/1/type = "bezier"
@@ -58,7 +58,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 1.0922, -0.25, 0, 0.25, 0, 1.0922, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1.00475, -0.25, 0, 0.25, 0, 1.00475, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 3 )
 }
 tracks/2/type = "bezier"
@@ -68,7 +68,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( -4.87509, -0.25, 0, 0.25, 0, -4.87509, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -4.86948, -0.25, 0, 0.25, 0, -4.86948, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 3 )
 }
 tracks/3/type = "bezier"
@@ -78,8 +78,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray(  ),
-"times": PoolRealArray(  )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
 }
 tracks/4/type = "bezier"
 tracks/4/path = NodePath(".:rotation_degrees:y")
@@ -88,8 +88,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray(  ),
-"times": PoolRealArray(  )
+"points": PoolRealArray( 3.41509e-06, -0.25, 0, 0.25, 0, -58.101, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
 }
 tracks/5/type = "bezier"
 tracks/5/path = NodePath(".:rotation_degrees:z")
@@ -98,8 +98,8 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray(  ),
-"times": PoolRealArray(  )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
 }
 
 [sub_resource type="Animation" id=7]
@@ -111,7 +111,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0.443517, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0.183558, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/1/type = "bezier"
@@ -121,7 +121,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 1.0922, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1.00475, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/2/type = "bezier"
@@ -131,7 +131,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( -4.87509, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -4.86948, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/3/type = "bezier"
@@ -141,8 +141,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray(  ),
-"times": PoolRealArray(  )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
 }
 tracks/4/type = "bezier"
 tracks/4/path = NodePath(".:rotation_degrees:y")
@@ -151,8 +151,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray(  ),
-"times": PoolRealArray(  )
+"points": PoolRealArray( 3.41509e-06, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
 }
 tracks/5/type = "bezier"
 tracks/5/path = NodePath(".:rotation_degrees:z")
@@ -161,12 +161,12 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray(  ),
-"times": PoolRealArray(  )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
 }
 
 [node name="Machine" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.443517, 1.0922, -4.87509 )
+transform = Transform( 1, 0, 5.96047e-08, 0, 1, 0, -5.96047e-08, 0, 1, 0.183558, 1.00475, -4.86948 )
 script = ExtResource( 6 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]

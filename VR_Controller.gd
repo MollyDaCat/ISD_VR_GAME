@@ -312,7 +312,8 @@ func button_pressed(button_index):
 	
 	
 	# If the menu button is pressed...
-	if button_index == 1:
+	print(button_index)
+	if button_index == 2:
 		# Change modes to the opposite mode, and make the grab raycast visible/invisible as needed.
 		#
 		# NOTE: There are better ways to do this, but for the purposes of this tutorial, this will

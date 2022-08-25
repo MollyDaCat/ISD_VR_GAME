@@ -1469,8 +1469,7 @@ material/0 = SubResource( 40 )
 shape = SubResource( 42 )
 
 [node name="Bumper" type="StaticBody" parent="."]
-transform = Transform( 6.72858, 0, 0, 0, 0.245914, 0, 0, 0, 0.0547491, 7.65956, 0.236875, 0.43481 )
-visible = false
+transform = Transform( 6.72858, 0, 0, 0, 0.245914, 0, 0, 0, 0.0547491, 7.65956, 0.236875, -0.124704 )
 
 [node name="Floor" type="MeshInstance" parent="Bumper"]
 mesh = SubResource( 39 )
@@ -1484,6 +1483,7 @@ shape = SubResource( 42 )
 transform = Transform( 6.72858, 0, 0, 0, 0.245914, 0, 0, 0, 0.0547491, 7.65956, 0.236875, -2.76413 )
 
 [node name="Floor" type="MeshInstance" parent="Bumper2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.1157 )
 mesh = SubResource( 39 )
 skeleton = NodePath("../..")
 material/0 = ExtResource( 4 )

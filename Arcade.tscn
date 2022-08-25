@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://_MyContent/Images/Arcade Floor Galaxy.jpg" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://_MyContent/Meshes/JukeBox.obj" type="ArrayMesh" id=17]
 [ext_resource path="res://_MyContent/Scenes/Duck_Shooting.tscn" type="PackedScene" id=18]
 [ext_resource path="res://_MyContent/Scenes/Flappy_Fern_Machine.tscn" type="PackedScene" id=19]
+[ext_resource path="res://_MyContent/Scenes/MiniGames.gd" type="Script" id=20]
 
 [sub_resource type="SpatialMaterial" id=47]
 albedo_color = Color( 0.168627, 0.168627, 0.168627, 1 )
@@ -482,14 +483,16 @@ volume_db = -10.0
 autoplay = true
 
 [node name="MiniGames" type="Spatial" parent="."]
+script = ExtResource( 20 )
+
+[node name="Machine" parent="MiniGames" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.183558, 1.00475, -4.86948 )
 
 [node name="Bowling" parent="MiniGames" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.26183, -0.242366, 1.10417 )
 
 [node name="Duck Shooting" parent="MiniGames" instance=ExtResource( 18 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.00313, 1.10959, 5.62676 )
-
-[node name="Flappy Fern" parent="MiniGames" instance=ExtResource( 19 )]
 
 [node name="Video Machine" type="StaticBody" parent="MiniGames"]
 transform = Transform( 0.866025, -4.37114e-08, 0.5, 3.82137e-15, -1, -8.74228e-08, 0.5, 7.57103e-08, -0.866025, -5.29973, 4.80492, 4.51058 )
