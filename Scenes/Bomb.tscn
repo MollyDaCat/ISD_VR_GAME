@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Bomb.scn" type="PackedScene" id=2]
 [ext_resource path="res://_MyContent/Meshes/Bomb.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://Audio/Oliver_Giaradot_Guns_And_Explosions/Bullet_Impact_22.ogg" type="AudioStream" id=4]
-[ext_resource path="res://_MyContent/Materials/Neon_Green.tres" type="Material" id=5]
+[ext_resource path="res://_MyContent/Materials/Neon_Red.tres" type="Material" id=5]
 
 [sub_resource type="SphereShape" id=13]
 radius = 0.1236

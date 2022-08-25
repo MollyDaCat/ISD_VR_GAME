@@ -166,7 +166,7 @@ tracks/5/keys = {
 }
 
 [node name="Machine" type="Spatial"]
-transform = Transform( 1, 0, 5.96047e-08, 0, 1, 0, -5.96047e-08, 0, 1, 0.183558, 1.00475, -4.86948 )
+transform = Transform( 1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.183558, 1.00475, -4.86948 )
 script = ExtResource( 6 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]

@@ -2,7 +2,8 @@ extends Spatial
 
 
 func Press():
-	$Viewport/Player.get_child(2).flap()
+	if $Viewport.get_child_count() != 0:
+		$Viewport/Player.get_child(2).flap()
 
 func finish():
 	$AnimationPlayer.play("Finish")
