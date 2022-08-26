@@ -1,5 +1,7 @@
 extends Spatial
 
+var tickets = 0
 
 func add_tickets(amount):
-	print(amount)
+	tickets += amount
+	$"Video Machine/Viewport/Label".text = str(tickets)

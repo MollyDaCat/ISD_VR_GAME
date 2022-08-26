@@ -29,6 +29,7 @@ extents = Vector2( 46.5, 141 )
 extents = Vector2( 249.5, 23 )
 
 [node name="Player" type="Node2D"]
+pause_mode = 1
 position = Vector2( 50, 53 )
 
 [node name="Background" type="TextureRect" parent="."]
@@ -65,7 +66,6 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
 position = Vector2( -12.8172, -6.40845 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 2 )
 
 [node name="Wall" type="StaticBody2D" parent="." groups=["Wall"]]

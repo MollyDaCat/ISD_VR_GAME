@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://_MyContent/Materials/White.tres" type="Material" id=1]
 [ext_resource path="res://_MyContent/Meshes/Target.obj" type="ArrayMesh" id=2]
@@ -33,7 +33,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "points": PoolRealArray( 0.159, -0.25, 0, 0.25, 0, 0.159, -0.25, 0, 0.25, 0, 0.159, -0.25, 0, 0.25, 0, 0.159, -0.25, 0, 0.25, 0, 0.159, -0.25, 0, 0.25, 0, 0.159, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.3, 0.5, 5.7, 5.9, 6.2 )
+"times": PoolRealArray( 0, 0.2, 0.4, 5.8, 6, 6.2 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath(".:translation:y")
@@ -43,7 +43,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "points": PoolRealArray( -0.546, -0.25, 0, 0.25, 0, -0.2, -0.25, 0, 0.25, 0, -0.2, -0.25, 0, 0.25, 0, -0.2, -0.25, 0, 0.25, 0, -0.2, -0.25, 0, 0.25, 0, -0.539305, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.3, 0.5, 5.7, 5.9, 6.2 )
+"times": PoolRealArray( 0, 0.2, 0.4, 5.8, 6, 6.2 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath(".:translation:z")
@@ -53,7 +53,7 @@ tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
 "points": PoolRealArray( 1.158, -0.25, 0, 0.25, 0, 1.158, -0.25, 0, 0.25, 0, 1.158, -0.25, 0, 0.25, 0, -1.158, -0.25, 0, 0.25, 0, -1.158, -0.25, 0, 0.25, 0, -1.158, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.3, 0.5, 5.7, 5.9, 6.2 )
+"times": PoolRealArray( 0, 0.2, 0.4, 5.8, 6, 6.2 )
 }
 tracks/3/type = "bezier"
 tracks/3/path = NodePath(".:rotation_degrees:x")
@@ -164,6 +164,20 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 )
 }
 
+[sub_resource type="Animation" id=14]
+resource_name = "Shot"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:translation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -0.872127, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+
 [node name="Duck_Shooting_Target" type="KinematicBody"]
 transform = Transform( -4.37114e-08, 0, 0.999999, 0, 0.999999, 0, -1, 0, -4.37113e-08, 0.159, -0.546, 1.158 )
 script = ExtResource( 4 )
@@ -195,6 +209,7 @@ playback_speed = 2.2
 "anims/Path 1" = SubResource( 6 )
 "anims/Path 2" = SubResource( 9 )
 anims/RESET = SubResource( 7 )
+anims/Shot = SubResource( 14 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 6.2
@@ -204,5 +219,10 @@ autostart = true
 [node name="Transform" type="Timer" parent="."]
 wait_time = 3.1
 
+[node name="Shot_Delay" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Transform" to="." method="_on_Transform_timeout"]
+[connection signal="timeout" from="Shot_Delay" to="." method="_on_Shot_Delay_timeout"]

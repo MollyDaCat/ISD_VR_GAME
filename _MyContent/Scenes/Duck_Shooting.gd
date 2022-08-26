@@ -9,6 +9,8 @@ var next_target_path = 1
 func _ready():
 	pass # Replace with function body.
 
+func Press():
+	$Target_Spawning.start()
 
 func spawn_target():
 

@@ -25,7 +25,6 @@ func _ready():
 		$Duck.set_surface_material(0,preload("res://_MyContent/Materials/Red.tres"))
 		$Transform.start()
 
-
 	if go_on_path == 1:
 		$AnimationPlayer.play("Path 1")
 	else:
@@ -34,7 +33,7 @@ func _ready():
 
 
 
-func _on_Timer_timeout():
+func _on_Timer_timeout(): #Reaches the end
 	queue_free()
 
 func damage(_x,_y):
@@ -42,7 +41,8 @@ func damage(_x,_y):
 		print("Shoot Duck")
 	elif mesh == "Target":
 		print ("Shoot Target")
-	queue_free()
+	$AnimationPlayer.play("Shot")
+	$Shot_Delay.start()
 
 
 func _on_Transform_timeout():
@@ -54,3 +54,7 @@ func _on_Transform_timeout():
 		mesh = "Duck"
 		$Target.hide()
 		$Duck.show()
+
+
+func _on_Shot_Delay_timeout():
+	queue_free()
