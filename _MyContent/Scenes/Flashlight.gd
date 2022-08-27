@@ -16,9 +16,16 @@ func interact():
 	if light_on == false:
 		light.light_energy = 1
 		light_on = true
+		if get_parent().name == "FlashlightGame":
+			get_parent().shine_light("On")
 	elif light_on == true:
 		light.light_energy = 0
 		light_on = false
+		if get_parent().name == "FlashlightGame":
+			get_parent().shine_light("Off")
+
+
+
 
 	# Update the raycast and see if it has collided with anything
 	raycast.force_raycast_update()

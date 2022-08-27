@@ -17,7 +17,7 @@ metallic_specular = 1.0
 extents = Vector3( 0.283029, 0.235714, 0.714095 )
 
 [node name="Flashlight" type="RigidBody"]
-transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.0333517, -0.517701 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0333517, -0.517701 )
 script = ExtResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
@@ -43,9 +43,9 @@ shape = SubResource( 4 )
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1.44906e-08, 0, 0.0552946 )
-spot_range = 40.0
+spot_range = 60.0
 spot_attenuation = 5.85634
-spot_angle = 22.04
+spot_angle = 7.02
 
 [node name="RayCast" type="RayCast" parent="."]
 cast_to = Vector3( 0, 0, -12.935 )

@@ -494,6 +494,7 @@ autoplay = true
 script = ExtResource( 20 )
 
 [node name="Machine" parent="MiniGames" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.183558, 1.00475, -4.86948 )
 
 [node name="Bowling" parent="MiniGames" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.26183, -0.242366, 1.10417 )
