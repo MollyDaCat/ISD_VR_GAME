@@ -26,26 +26,32 @@ func shine_light(toggled):
 
 
 func update_location(): #Play Animation When First Seen
-	print(animation_number)
-	timer.paused = true
-	if animation_number == -1:
-		return
+	if timer:
+		print(animation_number)
+		timer.paused = true
+		if animation_number == -1:
+			return
 
-	if not animation_number >= 5 and animation_played == false:
-		anim.play(animation_order[animation_number])
-		animation_played = true
-		$Enemy/Run.play()
+		if not animation_number >= 5 and animation_played == false:
+			anim.play(animation_order[animation_number])
+			animation_played = true
+			$Enemy/Run.play()
 
-	elif animation_number == 5:
-		if final_stage == 1:
-			print ("Sit Down")
-		elif final_stage == 2:
-			print ("Win")
-		elif final_stage == 3:
-			print ("JumpScare")
+		elif animation_number == 5:
+			if final_stage == 1:
+				print ("Sit Down")
+				anim.play("Final_1")
+				animation_number = 4
+			elif final_stage == 2:
+				print ("Win")
+				anim.play("Final_2")
+				timer.queue_free()
+			elif final_stage == 3:
+				print ("JumpScare")
 
 func resume_timer():
-	timer.paused = false
+	if timer:
+		timer.paused = false
 
 
 

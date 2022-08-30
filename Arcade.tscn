@@ -15,7 +15,7 @@
 [ext_resource path="res://_MyContent/Materials/White.tres" type="Material" id=13]
 [ext_resource path="res://_MyContent/Scenes/Button.gd" type="Script" id=14]
 [ext_resource path="res://_MyContent/Scenes/JukeBox.gd" type="Script" id=15]
-[ext_resource path="res://_MyContent/LEGO NINJAGO _ The Fold _ The Weekend Whip - The Ghost Whip (Instrumental).wav" type="AudioStream" id=16]
+[ext_resource path="res://_MyContent/Sounds/LEGO NINJAGO _ The Fold _ The Weekend Whip - The Ghost Whip (Instrumental).wav" type="AudioStream" id=16]
 [ext_resource path="res://_MyContent/Meshes/JukeBox.obj" type="ArrayMesh" id=17]
 [ext_resource path="res://_MyContent/Scenes/Duck_Shooting.tscn" type="PackedScene" id=18]
 [ext_resource path="res://_MyContent/Scenes/Flappy_Fern_Machine.tscn" type="PackedScene" id=19]
