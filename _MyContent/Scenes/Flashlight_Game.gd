@@ -3,13 +3,12 @@ extends Spatial
 
 onready var anim = $Enemy/AnimationPlayer
 onready var timer = $"Enemy Movement Timer"
-
+onready var final_timer = "Final Movement Timer"
 
 var animation_order = ["Move_Forward","Enter_Hallway_1","Peek_Hallway_1","Enter_Hallway_2","Peek_Hallway_2"]
 var animation_number = 0
 var animation_played = false
-#Animation Spots 0 -> Move foward at the start, 1 -> Enter the first hallway
-
+var final_stage = 0
 var time_left = 90
 
 func _ready():
@@ -37,7 +36,13 @@ func update_location(): #Play Animation When First Seen
 		animation_played = true
 		$Enemy/Run.play()
 
-
+	elif animation_number == 5:
+		if final_stage == 1:
+			print ("Sit Down")
+		elif final_stage == 2:
+			print ("Win")
+		elif final_stage == 3:
+			print ("JumpScare")
 
 func resume_timer():
 	timer.paused = false
@@ -46,9 +51,17 @@ func resume_timer():
 
 func _on_Enemy_Movement_Timer_timeout():
 	animation_played = false
-	timer.wait_time = rand_range(6.25,12.75)
-	timer.start()
-	animation_number += 1
+	if animation_number <= 4:
+		print ("Play Animation: ", animation_number)
+		timer.wait_time = rand_range(6.25,12.75)
+		timer.start()
+		animation_number += 1
+
+	elif animation_number == 5:
+		print("Final Stage: ", final_stage)
+		final_stage += 1
+		timer.wait_time = rand_range(0.75,1.75)
+		timer.start()
 
 
 func _on_Time_Limit_Timer_timeout(): #Update Timer

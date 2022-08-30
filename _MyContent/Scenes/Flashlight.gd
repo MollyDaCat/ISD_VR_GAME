@@ -3,7 +3,7 @@ extends RigidBody
 onready var light = $SpotLight
 onready var raycast = $RayCast
 
-var light_on = true
+var light_on = false
 
 
 
