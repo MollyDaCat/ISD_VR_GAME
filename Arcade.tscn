@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://_MyContent/Images/Arcade Floor Galaxy.jpg" type="Texture" id=2]
@@ -20,13 +20,7 @@
 [ext_resource path="res://_MyContent/Scenes/Duck_Shooting.tscn" type="PackedScene" id=18]
 [ext_resource path="res://_MyContent/Scenes/Flappy_Fern_Machine.tscn" type="PackedScene" id=19]
 [ext_resource path="res://_MyContent/Scenes/MiniGames.gd" type="Script" id=20]
-[ext_resource path="res://_MyContent/8bitOperatorPlus-Regular.ttf" type="DynamicFontData" id=21]
 [ext_resource path="res://_MyContent/Images/Ticket_Counter.png" type="Texture" id=22]
-[ext_resource path="res://_MyContent/Materials/Ghost.tres" type="Material" id=23]
-[ext_resource path="res://_MyContent/Meshes/Char/Chad_Ghost_Friendly.obj" type="ArrayMesh" id=24]
-[ext_resource path="res://_MyContent/Meshes/Char/Chad_Ghost_Evil.obj" type="ArrayMesh" id=25]
-[ext_resource path="res://_MyContent/Materials/White_Glow.tres" type="Material" id=26]
-[ext_resource path="res://Scenes/Flashlight.tscn" type="PackedScene" id=27]
 
 [sub_resource type="SpatialMaterial" id=47]
 albedo_color = Color( 0.168627, 0.168627, 0.168627, 1 )
@@ -48,7 +42,7 @@ metallic_specular = 1.0
 uv1_scale = Vector3( 60, 16.902, 1 )
 
 [sub_resource type="BoxShape" id=34]
-extents = Vector3( 1, 1, 0.483321 )
+extents = Vector3( 0.24983, 1, 0.341729 )
 
 [sub_resource type="BoxShape" id=35]
 extents = Vector3( 0.606686, 1, 0.0569874 )
@@ -119,12 +113,6 @@ top_radius = 0.01
 bottom_radius = 0.1
 height = 0.8
 
-[sub_resource type="DynamicFont" id=53]
-size = 70
-outline_size = 1
-outline_color = Color( 0, 1, 0.517647, 1 )
-font_data = ExtResource( 21 )
-
 [sub_resource type="ViewportTexture" id=52]
 viewport_path = NodePath("MiniGames/Video Machine/Viewport")
 
@@ -194,11 +182,11 @@ material = SubResource( 38 )
 [node name="StaticBody" type="StaticBody" parent="World/Floor_Main"]
 
 [node name="CollisionShape" type="CollisionShape" parent="World/Floor_Main/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.525312 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21025, 0, -0.525312 )
 shape = SubResource( 34 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="World/Floor_Main/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.521422 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.189753, 0, 0.521422 )
 shape = SubResource( 34 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="World/Floor_Main/StaticBody"]
@@ -525,33 +513,7 @@ position = Vector2( 158.188, 73.5 )
 scale = Vector2( 0.540441, 0.540441 )
 texture = ExtResource( 22 )
 
-[node name="Label" type="Label" parent="MiniGames/Video Machine/Viewport"]
-margin_left = -20.0
-margin_top = 54.0
-margin_right = 338.0
-margin_bottom = 354.0
-custom_colors/font_color = Color( 0.141176, 0.141176, 0.141176, 1 )
-custom_fonts/font = SubResource( 53 )
-text = "0
-"
-align = 1
-
 [node name="Sprite3D" type="Sprite3D" parent="MiniGames/Video Machine"]
 transform = Transform( -0.244855, 3.55271e-15, 2.98023e-08, 2.66454e-14, 0.25842, 4.39978e-08, -2.98023e-08, 4.39977e-08, -0.244855, 0.105866, 0.334877, -0.212255 )
 opacity = 0.27
 texture = SubResource( 52 )
-
-[node name="Flashlight" parent="." instance=ExtResource( 27 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.20735, 0.777936, 1.78465 )
-
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 1.41824, 1.62666, 4.54437 )
-mesh = ExtResource( 24 )
-material/0 = ExtResource( 26 )
-material/1 = ExtResource( 23 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0.338691, 0.464382, 3.80577 )
-mesh = ExtResource( 25 )
-material/0 = ExtResource( 23 )
-material/1 = ExtResource( 26 )

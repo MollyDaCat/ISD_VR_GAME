@@ -6,11 +6,16 @@ var target_chance = 55
 var switch_chance = 50
 var next_target_path = 1
 
+var time_left = 90
+var score = 0
+
 func _ready():
 	pass # Replace with function body.
 
 func Press():
 	$Target_Spawning.start()
+	$RigidBody/CollisionShape.disabled = true
+	$RigidBody.hide()
 
 func spawn_target():
 
@@ -36,3 +41,15 @@ func spawn_target():
 func _on_Target_Spawning_timeout():
 	spawn_target()
 
+
+
+func _on_Game_Timer_timeout():
+	time_left -= 1
+	$Timer/TimerLabel.text = str(time_left)
+	if time_left == 0:
+		$Target_Spawning.paused = true
+		$"Game Timer".queue_free()
+
+func change_score(amount):
+	score += amount
+	$Score/ScoreLabel.text = str(score)

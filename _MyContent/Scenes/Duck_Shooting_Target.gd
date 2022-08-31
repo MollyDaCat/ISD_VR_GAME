@@ -38,9 +38,12 @@ func _on_Timer_timeout(): #Reaches the end
 
 func damage(_x,_y):
 	if mesh == "Duck":
-		print("Shoot Duck")
+		get_parent().change_score(-100)
 	elif mesh == "Target":
-		print ("Shoot Target")
+		if switch == "No":
+			get_parent().change_score(100)
+		else:
+			get_parent().change_score(125)
 	$AnimationPlayer.play("Shot")
 	$Shot_Delay.start()
 
@@ -54,6 +57,7 @@ func _on_Transform_timeout():
 		mesh = "Duck"
 		$Target.hide()
 		$Duck.show()
+		get_parent().change_score(-25)
 
 
 func _on_Shot_Delay_timeout():

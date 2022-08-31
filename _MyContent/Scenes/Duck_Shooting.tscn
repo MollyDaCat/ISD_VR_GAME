@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://_MyContent/Meshes/Duck_Shooting.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://_MyContent/Materials/Metal.tres" type="Material" id=2]
 [ext_resource path="res://Scenes/Pistol.tscn" type="PackedScene" id=3]
 [ext_resource path="res://_MyContent/Scenes/Duck_Shooting.gd" type="Script" id=4]
 [ext_resource path="res://_MyContent/Scenes/Button.gd" type="Script" id=5]
+[ext_resource path="res://_MyContent/8bitOperatorPlus-Regular.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.6
@@ -19,6 +20,16 @@ points = PoolVector3Array( 0, -0.4, -1, -0.0980814, -0.4, -0.995301, 0, -0.24001
 
 [sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.196078, 1, 0, 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 160
+font_data = ExtResource( 6 )
+
+[sub_resource type="ViewportTexture" id=6]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="ViewportTexture" id=8]
+viewport_path = NodePath("Score")
 
 [node name="Duck Shooting" type="Spatial"]
 script = ExtResource( 4 )
@@ -63,4 +74,39 @@ transform = Transform( 0.242474, 0, 0, 0, 0.242474, 0, 0, 0, 0.242474, -0.007425
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
+[node name="Game Timer" type="Timer" parent="."]
+
+[node name="Timer" type="Viewport" parent="."]
+size = Vector2( 260, 250 )
+transparent_bg = true
+
+[node name="TimerLabel" type="Label" parent="Timer"]
+margin_right = 264.0
+margin_bottom = 223.0
+custom_fonts/font = SubResource( 7 )
+text = "90"
+
+[node name="Timer2" type="Sprite3D" parent="."]
+transform = Transform( -0.149743, 0, -0.149743, 0, 0.211768, 0, 0.149743, 0, -0.149743, -0.442423, 0.720013, 2.22051 )
+flip_v = true
+texture = SubResource( 6 )
+
+[node name="Score" type="Viewport" parent="."]
+size = Vector2( 600, 250 )
+transparent_bg = true
+
+[node name="ScoreLabel" type="Label" parent="Score"]
+margin_right = 582.0
+margin_bottom = 223.0
+custom_fonts/font = SubResource( 7 )
+text = "000000
+"
+align = 1
+
+[node name="Score2" type="Sprite3D" parent="."]
+transform = Transform( 0, 0, -0.211768, 0, 0.211768, 0, 0.391412, 0, 0, -0.115237, 0.810802, 0.0393653 )
+flip_v = true
+texture = SubResource( 8 )
+
 [connection signal="timeout" from="Target_Spawning" to="." method="_on_Target_Spawning_timeout"]
+[connection signal="timeout" from="Game Timer" to="." method="_on_Game_Timer_timeout"]
