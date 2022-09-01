@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://_MyContent/Images/Arcade Floor Galaxy.jpg" type="Texture" id=2]
@@ -20,7 +20,9 @@
 [ext_resource path="res://_MyContent/Scenes/Duck_Shooting.tscn" type="PackedScene" id=18]
 [ext_resource path="res://_MyContent/Scenes/Flappy_Fern_Machine.tscn" type="PackedScene" id=19]
 [ext_resource path="res://_MyContent/Scenes/MiniGames.gd" type="Script" id=20]
+[ext_resource path="res://_MyContent/Scenes/HelpButton.tscn" type="PackedScene" id=21]
 [ext_resource path="res://_MyContent/Images/Ticket_Counter.png" type="Texture" id=22]
+[ext_resource path="res://_MyContent/Meshes/Char/Chad_Ghost_Evil.obj" type="ArrayMesh" id=23]
 
 [sub_resource type="SpatialMaterial" id=47]
 albedo_color = Color( 0.168627, 0.168627, 0.168627, 1 )
@@ -112,6 +114,9 @@ albedo_color = Color( 0.460938, 0.633606, 1, 0.431373 )
 top_radius = 0.01
 bottom_radius = 0.1
 height = 0.8
+
+[sub_resource type="BoxShape" id=53]
+extents = Vector3( 0.440988, 0.45321, 0.262616 )
 
 [sub_resource type="ViewportTexture" id=52]
 viewport_path = NodePath("MiniGames/Video Machine/Viewport")
@@ -459,7 +464,6 @@ shape = SubResource( 48 )
 
 [node name="FPController" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95194, 0, 0 )
-world_scale = 2.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 39 )
@@ -478,8 +482,33 @@ material/0 = SubResource( 22 )
 volume_db = -10.0
 autoplay = true
 
+[node name="HelpButton" parent="." instance=ExtResource( 21 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 6.18289, 0.680878, 3.94513 )
+
+[node name="HelpButton2" parent="." instance=ExtResource( 21 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -5.40743, 0.680878, -4.41871 )
+text = "Interact with evil Chad to fight him!"
+
+[node name="HelpButton3" parent="." instance=ExtResource( 21 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -3.41417, 0.680878, 1.77386 )
+text = "Just play this game to get a star!"
+
 [node name="MiniGames" type="Spatial" parent="."]
 script = ExtResource( 20 )
+
+[node name="FlashLightGame" type="RigidBody" parent="MiniGames"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -6.95641, 0.596963, -5.52589 )
+mode = 1
+script = ExtResource( 14 )
+
+[node name="MeshInstance" type="MeshInstance" parent="MiniGames/FlashLightGame"]
+mesh = ExtResource( 23 )
+material/0 = null
+material/1 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="MiniGames/FlashLightGame"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.175737, -0.0212452, 0.368533 )
+shape = SubResource( 53 )
 
 [node name="Machine" parent="MiniGames" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.183558, 1.00475, -4.86948 )

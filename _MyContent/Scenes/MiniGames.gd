@@ -4,4 +4,9 @@ var tickets = 0
 
 func add_tickets(amount):
 	tickets += amount
-	$"Video Machine/Viewport/Label".text = str(tickets)
+	if tickets == 3:
+		pass
+
+
+func Press():
+	get_tree().change_scene("res://_MyContent/Scenes/Flashlight_Game.tscn")

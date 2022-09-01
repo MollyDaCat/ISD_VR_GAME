@@ -30,7 +30,7 @@ func reset_pins():
 	for x in $Pins.get_children():
 		x.sleeping = true
 
-	if total_points >= 80:
+	if total_points >= 60:
 		Global.tickets[1] = 1 #So the player can't farm points
 		if Global.tickets[1] == 0:
 			get_parent().add_tickets(10)

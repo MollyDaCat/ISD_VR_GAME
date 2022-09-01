@@ -46,6 +46,7 @@ func update_location(): #Play Animation When First Seen
 				print ("Win")
 				anim.play("Final_2")
 				timer.queue_free()
+				get_tree().change_scene("res://Arcade.tscn")
 			elif final_stage == 3:
 				jumpscare()
 
@@ -68,7 +69,7 @@ func _on_Enemy_Movement_Timer_timeout():
 		final_stage += 1
 		timer.wait_time = rand_range(0.75,1.75)
 		if final_stage == 2:
-			timer.wait_time = 4
+			timer.wait_time = 5
 		timer.start()
 
 
