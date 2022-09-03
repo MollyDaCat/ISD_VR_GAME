@@ -16,13 +16,13 @@ spread = 0.0
 gravity = Vector3( 0, 1, 0 )
 angular_velocity = 5.70328e-43
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=15]
 flags_transparent = true
 flags_unshaded = true
 albedo_color = Color( 0.0820313, 0.0820313, 0.0820313, 0.872902 )
 
 [sub_resource type="CubeMesh" id=4]
-material = SubResource( 3 )
+material = SubResource( 15 )
 size = Vector3( 0.03, 0.03, 0.03 )
 
 [sub_resource type="SpatialMaterial" id=14]
