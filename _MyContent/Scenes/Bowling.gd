@@ -38,10 +38,14 @@ func reset_pins():
 	print("Total Score: ", total_points)
 	if total_points >= challenge1: #Remove Guard Rails
 		print ("Challange 1")
+		$Bumper.translate(Vector3(0,0,-10)) #change to translation, then reset when points are below
+		$Bumper2.translate(Vector3(0,0,-10)) 
 	else:
-		pass
+		print ("challenge 1 reset")
+		$Bumper.translate(Vector3(0,0,10)) #Reset the bumpers so that when the points reset the player restarts the challenges
+		$Bumper2.translate(Vector3(0,0,10))
 	if total_points >= challenge2: #Sloped playing field
-		print ("Challange 2")
+		print ("Challange 2") #Have two different floors that swap places ##Possibly three so there is a slope upwards at the end of the straight stretch (Wedge kind of thing to get th eball level with the pins)
 	else:
 		pass
 	if total_points >= challenge3: # Pins move (If they can cause they are sketchy as hell)
