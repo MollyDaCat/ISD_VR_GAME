@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://_MyContent/Scenes/Pin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://_MyContent/Scenes/Bowling.gd" type="Script" id=2]
 [ext_resource path="res://_MyContent/Meshes/Bowling_Ball_Return.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://_MyContent/Materials/Metal.tres" type="Material" id=4]
+[ext_resource path="res://_MyContent/Scenes/CurvedFloor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=6]
 [ext_resource path="res://_MyContent/Materials/Flesh.tres" type="Material" id=8]
 [ext_resource path="res://_MyContent/Images/Wood.jpg" type="Texture" id=9]
@@ -1383,7 +1384,7 @@ ball_name = "Bowling"
 mat = ExtResource( 8 )
 
 [node name="Pins" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.259726, 0, -5.00012 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26, 0.02, -5 )
 
 [node name="Pin" parent="Pins" instance=ExtResource( 1 )]
 
@@ -1452,6 +1453,7 @@ shape = SubResource( 46 )
 transform = Transform( 6.83379, 0, 0, 0, 0.245914, 0, 0, 0, 1, 7.68337, 3.41061e-13, -1.14917 )
 
 [node name="Floor" type="MeshInstance" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0175212, 0 )
 mesh = SubResource( 39 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 51 )
@@ -1511,6 +1513,9 @@ mesh = ExtResource( 12 )
 material/0 = null
 material/1 = null
 material/2 = null
+
+[node name="Floor3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, 6.26406, 0, -1.14523 )
 
 [connection signal="body_entered" from="BallDetector" to="." method="_on_BallDetector_body_entered"]
 [connection signal="timeout" from="Pin Respawn Delay" to="." method="_on_Pin_Respawn_Delay_timeout"]

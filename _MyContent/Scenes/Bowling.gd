@@ -14,6 +14,10 @@ var challenge2 = 20
 var challenge3 = 40
 var challenge4 = 60
 
+var challenge1reset = true
+var challenge2reset = true
+var challenge3reset = true
+var challenge4reset = true
 
 
 func _ready():
@@ -38,22 +42,46 @@ func reset_pins():
 	print("Total Score: ", total_points)
 	if total_points >= challenge1: #Remove Guard Rails
 		print ("Challange 1")
-		$Bumper.translate(Vector3(0,0,-10)) #change to translation, then reset when points are below
-		$Bumper2.translate(Vector3(0,0,-10)) 
+		if challenge1reset == false: #To stop the floor continuosly moving down each pin hit
+			$Bumper.translate(Vector3(0,0,-10)) #change to translation, then reset when points are below
+			$Bumper2.translate(Vector3(0,0,-10)) 
+			challenge1reset = true
+		else:
+			pass
 	else:
 		print ("challenge 1 reset")
-		$Bumper.translate(Vector3(0,0,10)) #Reset the bumpers so that when the points reset the player restarts the challenges
-		$Bumper2.translate(Vector3(0,0,10))
+		if challenge1reset == true:
+			$Bumper.translate(Vector3(0,0,10)) #Reset the bumpers so that when the points reset the player restarts the challenges
+			$Bumper2.translate(Vector3(0,0,10))
+			challenge1reset = false
+		else:
+			pass
 	if total_points >= challenge2: #Sloped playing field
-		print ("Challange 2") #Have two different floors that swap places ##Possibly three so there is a slope upwards at the end of the straight stretch (Wedge kind of thing to get th eball level with the pins)
+		print ("Challange 2") #Have two different floors that swap places
+		if challenge2reset == false:
+			$Floor.translate(Vector3(0,0,-10))
+			challenge2reset = true
+		else:
+			pass
 	else:
-		pass
+		if challenge2reset == true:
+			$Floor.translate(Vector3(0,0,10))
+			challenge2reset = false
+		else:
+			pass
 	if total_points >= challenge3: # Pins move (If they can cause they are sketchy as hell)
 		print ("Challange 3")
+		if challenge3reset == true:
+			pass
+		else:
+			pass
 	else:
-		pass
+		if challenge3reset == false:
+			pass
+		else:
+			pass
 	if total_points >= challenge4: #Heavier Pin (Hard to go down on a non - direct hit
-		pass
+		print ("Challange 4")
 	else:
 		pass
 
