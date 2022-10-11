@@ -19,9 +19,16 @@ var challenge2reset = true
 var challenge3reset = true
 var challenge4reset = true
 
+var moved1 = true #Keeps track of weather the floors should change position
+var moved2 = false
+var moved3 = true
+var moved4 = false
+var moved5 = true
+var moved6 = false
 
 func _ready():
-	pass
+	$Barriers.translate(Vector3(0,0,-10)) #Move the barriers (For a challenge)
+	$Barriers2.translate(Vector3(0,0,-10))
 
  
 func _on_Pin_Respawn_Delay_timeout():
@@ -35,55 +42,90 @@ func reset_pins():
 		x.sleeping = true
 
 	if total_points >= 60:
-		Global.tickets[1] = 1 #So the player can't farm points
 		if Global.tickets[1] == 0:
 			get_parent().add_tickets(10)
+		Global.tickets[1] = 1 #So the player can't farm points
 
 	print("Total Score: ", total_points)
 	if total_points >= challenge1: #Remove Guard Rails
 		print ("Challange 1")
 		if challenge1reset == false: #To stop the floor continuosly moving down each pin hit
-			$Bumper.translate(Vector3(0,0,-10)) #change to translation, then reset when points are below
-			$Bumper2.translate(Vector3(0,0,-10)) 
-			challenge1reset = true
+			if moved2 == false:
+				$Bumper.translate(Vector3(0,0,-10)) #change to translation, then reset when points are below
+				$Bumper2.translate(Vector3(0,0,-10)) 
+				challenge1reset = true
+				moved2 = true
+				moved1 = false
+			else:
+				pass
 		else:
 			pass
 	else:
 		print ("challenge 1 reset")
 		if challenge1reset == true:
-			$Bumper.translate(Vector3(0,0,10)) #Reset the bumpers so that when the points reset the player restarts the challenges
-			$Bumper2.translate(Vector3(0,0,10))
-			challenge1reset = false
+			if moved1 == false:
+				$Bumper.translate(Vector3(0,0,10)) #Reset the bumpers so that when the points reset the player restarts the challenges
+				$Bumper2.translate(Vector3(0,0,10))
+				challenge1reset = false
+				moved2 = false
+				moved1 = true
+			else:
+				pass
 		else:
 			pass
 	if total_points >= challenge2: #Sloped playing field
 		print ("Challange 2") #Have two different floors that swap places
 		if challenge2reset == false:
-			$Floor.translate(Vector3(0,0,-10))
-			challenge2reset = true
+			if moved4 == false:
+				$Floor.translate(Vector3(0,0,-10)) #Swapping out floors, tesselating them down in this one
+				challenge2reset = true
+				moved4 = true
+				moved5 = false
+			else:
+				pass
 		else:
 			pass
 	else:
 		if challenge2reset == true:
-			$Floor.translate(Vector3(0,0,10))
-			challenge2reset = false
+			if moved5 == false:
+				$Floor.translate(Vector3(0,0,10)) #Returning the floor to its location
+				challenge2reset = false
+				moved5 = true
+				moved6 = false
+			else:
+				pass
 		else:
 			pass
-	if total_points >= challenge3: # Pins move (If they can cause they are sketchy as hell)
+	if total_points >= challenge3: # Ball goes lighter (harder to bowl)
 		print ("Challange 3")
+		Global.Mass = 0.5
+		challenge3reset = true
+	else:
 		if challenge3reset == true:
+			Global.Mass = 1
+			challenge3reset = false
+		else:
 			pass
+	if total_points >= challenge4: #Barriers
+		if moved6 == false:
+			$Barriers.translate(Vector3(0,0,10)) #change from translate to translation to free up multiple lines of code
+			$Barriers2.translate(Vector3(0,0,10)) #adds barriers to the game to force the player to aim where they throw the ball
+			challenge3reset = true
+			moved6 = true
+			moved5 = false
 		else:
 			pass
 	else:
-		if challenge3reset == false:
-			pass
+		if challenge3reset == true:
+			if moved5 == false:
+				$Barriers.translate(Vector3(0,0,-10))
+				$Barriers2.translate(Vector3(0,0,-10))
+				moved5 = true
+				moved6 = false
+			else:
+				pass
 		else:
 			pass
-	if total_points >= challenge4: #Heavier Pin (Hard to go down on a non - direct hit
-		print ("Challange 4")
-	else:
-		pass
 
 
 func count_pins():

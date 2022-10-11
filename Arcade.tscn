@@ -483,7 +483,7 @@ volume_db = -10.0
 autoplay = true
 
 [node name="HelpButton" parent="." instance=ExtResource( 21 )]
-transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 6.18289, 0.680878, 3.94513 )
+transform = Transform( -0.238906, 0, 0.971043, 0, 1, 0, -0.971043, 0, -0.238906, 5.48808, 0.680878, 2.9868 )
 
 [node name="HelpButton2" parent="." instance=ExtResource( 21 )]
 transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -5.40743, 0.680878, -4.41871 )

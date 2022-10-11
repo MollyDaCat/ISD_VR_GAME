@@ -3,11 +3,10 @@ extends RigidBody
 
 export var min_speed = 0.1
 export var ball_name = ""
-export var Mass = 1
 export var mat = preload("res://_MyContent/Materials/Metal.tres")
 
 func _ready():
-	mass = Mass
+	mass = Global.Mass
 	$MeshInstance.set_surface_material(0,mat)
 
 func dropped():
