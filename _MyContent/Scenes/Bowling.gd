@@ -14,6 +14,8 @@ var challenge2 = 20
 var challenge3 = 40
 var challenge4 = 60
 
+var counter = [0,0,0,0,0,0,0,0,0,0]
+
 var challenge1reset = true
 var challenge2reset = true
 var challenge3reset = true
@@ -41,7 +43,7 @@ func reset_pins():
 	for x in $Pins.get_children():
 		x.sleeping = true
 
-	if total_points >= 60:
+	if total_points >= 100:
 		if Global.tickets[1] == 0:
 			get_parent().add_tickets(10)
 		Global.tickets[1] = 1 #So the player can't farm points
@@ -136,11 +138,13 @@ func count_pins():
 		if z.global_transform.origin.y <= 0.6:
 			pins_down += 1
 
-	if current_round > 9:
+	if current_round > 10:
 		current_round = 0
 
 	var current_square = squares[current_round]
 	var a = current_square.get_children()
+	var d = squares[current_round-1].get_children()
+	var e = squares[current_round-2].get_children()
 
 	if balls_thrown == 1: #After First Throw
 		var b = a[0]
@@ -152,9 +156,34 @@ func count_pins():
 			c.text = str("X")
 			a[2].text = str("10")
 			reset_pins()
+			counter[current_round] == 2
+			if counter[current_round-1] == 1 :
+				counter[current_round-1] = 0
+				total_points += pins_down_round_one #So the spare function can add points
+				d[2].text = str(+10) #Update point board
+			if counter[current_round-1] == 2 : 
+				counter[current_round-1] -= 1
+				total_points += pins_down_round_one #Add points gained from getting a strike
+				d[2].text = str(+10) #Update point board
+			elif counter[current_round-1] == 0:
+				pass
+			if counter[current_round-2] == 1 : 
+				counter[current_round-2] = 0
+				total_points += pins_down_round_one
+				e[2].text = str(+10)
+			else:
+				pass
 		total_points += pins_down
 		pins_down = 0
 	elif balls_thrown == 2: #After Second Throw
+		if pins_down == 10: #spare
+			counter[current_round] == 1
+		if counter[current_round-1] == 1:
+			counter[current_round-1] = 0
+			d[2].text = str(+10)
+			total_points += (pins_down - pins_down_round_one)
+		else:
+			pass
 		var b = a[1]
 		b.text = str(pins_down - pins_down_round_one)
 		var c = a[2]
