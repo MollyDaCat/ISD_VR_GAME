@@ -14,7 +14,7 @@ var challenge2 = 20
 var challenge3 = 40
 var challenge4 = 60
 
-var counter = [0,0,0,0,0,0,0,0,0,0]
+var counter = [0,0,0,0,0,0,0,0,0,0] #counts if the round resulted in a strike or a spare to allow for proper scoring conventions.
 
 var challenge1reset = true
 var challenge2reset = true
@@ -138,10 +138,12 @@ func count_pins():
 		if z.global_transform.origin.y <= 0.6:
 			pins_down += 1
 
-	if current_round > 10:
-		current_round = 0
+	if current_round > 10: # Reset the round so the player can earn the required points if failed
+		
+		
+		current_round = 0 #Resets round
 
-	var current_square = squares[current_round]
+	var current_square = squares[current_round] #Used to edit scores on game board
 	var a = current_square.get_children()
 	var d = squares[current_round-1].get_children()
 	var e = squares[current_round-2].get_children()
