@@ -159,31 +159,31 @@ func count_pins():
 			a[2].text = str("10")
 			reset_pins()
 			counter[current_round] == 2
-			if counter[current_round-1] == 1 :
+			if counter[current_round-1] == 1 : #Detect spare
 				counter[current_round-1] = 0
 				total_points += pins_down_round_one #So the spare function can add points
 				d[2].text = str(+10) #Update point board
-			if counter[current_round-1] == 2 : 
+			if counter[current_round-1] == 2 : #Detect Strike
 				counter[current_round-1] -= 1
 				total_points += pins_down_round_one #Add points gained from getting a strike
 				d[2].text = str(+10) #Update point board
 			elif counter[current_round-1] == 0:
 				pass
-			if counter[current_round-2] == 1 : 
+			if counter[current_round-2] == 1 : #Getting a strike after a strike still adds points instead of not registering
 				counter[current_round-2] = 0
-				total_points += pins_down_round_one
-				e[2].text = str(+10)
+				total_points += pins_down_round_one #Add points
+				e[2].text = str(+10) #Update point board
 			else:
 				pass
 		total_points += pins_down
 		pins_down = 0
 	elif balls_thrown == 2: #After Second Throw
 		if pins_down == 10: #spare
-			counter[current_round] == 1
+			counter[current_round] == 1 #So that the game can detect a spare has occured
 		if counter[current_round-1] == 1:
-			counter[current_round-1] = 0
+			counter[current_round-1] = 0 #So that game doesn't count twice
 			d[2].text = str(+10)
-			total_points += (pins_down - pins_down_round_one)
+			total_points += (pins_down - pins_down_round_one) #Add points from spare
 		else:
 			pass
 		var b = a[1]
