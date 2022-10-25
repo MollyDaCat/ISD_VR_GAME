@@ -493,6 +493,10 @@ text = "Interact with evil Chad to fight him!"
 transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -3.41417, 0.680878, 1.77386 )
 text = "Just play this game to get a star!"
 
+[node name="HelpButton4" parent="." instance=ExtResource( 21 )]
+transform = Transform( 0.766895, 0, -1.28914, 0, 1.5, 0, 1.28914, 0, 0.766895, 4.072, 0.634444, -4.0372 )
+text = "If you find any bugs throughout the game please email 0342870@schoolsnet.act.edu.au with your problem"
+
 [node name="MiniGames" type="Spatial" parent="."]
 script = ExtResource( 20 )
 
