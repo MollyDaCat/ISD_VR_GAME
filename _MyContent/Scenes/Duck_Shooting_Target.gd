@@ -2,7 +2,7 @@ extends KinematicBody
 
 
 export var go_on_path = 1
-var speed = 1
+var speed = Global.speed
 var mesh = "Duck"
 
 var switch = "No"

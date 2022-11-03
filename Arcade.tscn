@@ -172,8 +172,8 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.81435
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.34741, 6.00762, 3.32451 )
 
 [node name="SpotLight5" parent="World/Lights" instance=ExtResource( 11 )]
-transform = Transform( 0.5, 3.78552e-08, -0.866025, 0.866025, -2.18557e-08, 0.5, 0, -1, -4.37114e-08, 9.0753, 5.95088, 0.260531 )
-light_color = Color( 0, 0.552941, 1, 1 )
+transform = Transform( 0.604544, 3.48193e-08, -0.796572, 0.796572, -2.64255e-08, 0.604544, 0, -1, -4.37114e-08, 9.0753, 5.95088, 0.260531 )
+light_color = Color( 0.552941, 0.721569, 0.854902, 1 )
 spot_range = 15.455
 spot_attenuation = 1.07177
 spot_angle = 24.94
